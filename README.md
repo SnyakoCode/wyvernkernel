@@ -46,16 +46,20 @@ driver::read_memory(driver_handle, memory_address(client + offset));
 
 ## Troubleshooting
 **Failed to create driver handle** 
+
 Make sure that driver is installed(drag kernel.sys into kdmapper.exe).
 
 **Wyvern.exe deleting by windows defender**
+
 Disable windows defender, try to build application again.
 
 **Your vulnerable driver list is enabled and have blocked the driver loading, you must disable vulnerable driver list to use kdmapper with intel driver**
+
 Disable antivirus, check if there's no enabled AC(faceit, valorant etc.).
 Try to find your error in [kdmapper issues](github.com/thecruz/kdmapper/issues/).
 
 **Cant build project**
+
 Make sure that VS runned as administrator and you already download [WindowsDriverKit](https://learn.microsoft.com/en-us/windows-hardware/drivers/download-the-wdk).
 Download the individual components with the Spectre add-ons. (Step 1 when installing the driver kit)
 
