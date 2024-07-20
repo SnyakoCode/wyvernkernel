@@ -35,9 +35,13 @@ After installation, you can use Wyvern to access process memory directly through
 
 ## Exmaple of working with memory data
 
+**This example is based on memory handling in CS2**
 ```cpp
 Driver driver_handle;
-const std::uintptr_t client = driver::module_base(); // client.dll
+DriverInitializer driver_initializer;
+
+DWORD procid = driver_initializer::find_proccess_id(L"cs2.exe")
+const std::uintptr_t client = driver_initializer::module_base(procid, L"client.dll"); // client.dll
 
 driver::write_memory(driver_handle, memory_address(client + offset), value);
 
