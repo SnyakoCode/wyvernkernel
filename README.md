@@ -2,7 +2,7 @@
 
 **Wyvern** is a kernel driver designed to facilitate the transmission and reception of memory from any process via the computer's kernel.
 
-**Wyvern** Based for cs2 hacking. But, if you recode the source, it can be used for any need.
+**Wyvern** based for cs2 hacking. But, if you recode the source, it can be used for any games/apps.
 
 ### Features
 - **Direct Memory Access:** Transmit and receive memory from any process.
@@ -33,7 +33,7 @@ To install the Wyvern kernel driver, follow these steps:
 
 After installation, you can use Wyvern to access process memory directly through provided interfaces. Refer to the documentation for detailed usage instructions.
 
-## Exmaple of getting memory data
+## Exmaple of working with memory data
 
 ```cpp
 Driver driver_handle;
