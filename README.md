@@ -13,7 +13,7 @@ To install the Wyvern kernel driver, follow these steps:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/snyakocode/wyvernkern.git
+   git clone https://github.com/snyakocode/wyvernkernel.git
    cd wyvern
    ```
 
