@@ -40,8 +40,8 @@ After installation, you can use Wyvern to access process memory directly through
 Driver driver_handle;
 DriverUtills driver_utills;
 
-DWORD procid = driver_uttils::find_proccess_id(L"cs2.exe"): 
-const std::uintptr_t client = driver_uttils::module_base(procid, L"client.dll"); 
+DWORD procid = driver_utills::find_proccess_id(L"cs2.exe"): 
+const std::uintptr_t client = driver_utills::module_base(procid, L"client.dll"); 
 
 driver::write_memory(driver_handle, memory_address(client + offset), value);
 
