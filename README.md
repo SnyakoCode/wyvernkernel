@@ -39,8 +39,8 @@ After installation, you can use Wyvern to access process memory directly through
 Driver driver_handle;
 const std::uintptr_t client = driver::module_base(); // client.dll
 
-driver::write_memory(driver_handle, memory_address(dll module base + offset), value);
+driver::write_memory(driver_handle, memory_address(client + offset), value);
 
-driver::read_memory(driver_handle, memory_address(dll module base + offset));
+driver::read_memory(driver_handle, memory_address(client + offset));
 ```
 ---
