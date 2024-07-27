@@ -40,6 +40,8 @@ HANDLE driver = driver_utills::open_driver_handle();
 DWORD procid = driver_utills::find_proccess_id(L"cs2.exe"): 
 const std::uintptr_t client = driver_utills::module_base(procid, L"client.dll"); 
 
+driver::attach_to_process(driver, procid)
+
 driver::write_memory<int>(driver_handle, memory_address(client + offset), value);
 driver::read_memory<int>(driver_handle, memory_address(client + offset));
 ```
