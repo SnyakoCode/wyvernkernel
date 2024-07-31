@@ -15,6 +15,7 @@ void main() {
     std::cout << "Client.dll: " << client << std::endl;
 
     /*          Write/Read memory example
+    driver::attach_to_process(driver_handle, procid);
     driver::write_memory(driver_handle, memory_address(client + offset), value);
     driver::read_memory(driver_handle, memory_address(client + offset));
     */
