@@ -1,5 +1,5 @@
+// driver.cpp
 #include "driver.h"
-
 
 namespace driver {
 
@@ -9,30 +9,6 @@ namespace driver {
 
         return DeviceIoControl(driver_handle, codes::attach, &r, sizeof(r), &r, sizeof(r), nullptr, nullptr);
     }
-
-    template <class T>
-    T read_memory(HANDLE driver_handle, const std::uintptr_t addr) {
-        T temp = {};
-
-        Request r;
-        r.target = reinterpret_cast<PVOID>(addr);
-        r.buffer = &temp;
-        r.size = sizeof(T);
-
-        DeviceIoControl(driver_handle, codes::read, &r, sizeof(r), &r, sizeof(r), nullptr, nullptr);
-
-        return temp;
-    }
-
-    template <class T>
-    void write_memory(HANDLE driver_handle, const std::uintptr_t addr, const T& value) {
-        Request r;
-        r.target = reinterpret_cast<PVOID>(addr);
-        r.buffer = const_cast<PVOID>(reinterpret_cast<const void*>(&value));
-        r.size = sizeof(T);
-
-        DeviceIoControl(driver_handle, codes::write, &r, sizeof(r), &r, sizeof(r), nullptr, nullptr);
-    }
 }
 
 namespace driver_utills {
@@ -40,7 +16,7 @@ namespace driver_utills {
     HANDLE driver_handle_;
     DWORD pid_;
 
-    DWORD driver_utills::find_process_id(const wchar_t* process_name) {
+    DWORD find_process_id(const wchar_t* process_name) {
         DWORD process_id = 0;
 
         HANDLE snap_shot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
@@ -95,7 +71,7 @@ namespace driver_utills {
         return module_base;
     }
 
-    HANDLE driver_utills::open_driver_handle() {
+    HANDLE open_driver_handle() {
         HANDLE handle = CreateFile(L"\\\\.\\WyvernDriver", GENERIC_READ, 0, nullptr, OPEN_EXISTING,
             FILE_ATTRIBUTE_NORMAL, nullptr);
         return handle;
